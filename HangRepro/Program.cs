@@ -40,7 +40,7 @@ namespace HangRepro
                 var nextResult = results.Take();
                 if (nextResult) reproCount++;
 
-                Console.Write($"\r{reproCount}/{progress}, {reproCount / (double)progress:p1}");
+                Console.Write($"\r{reproCount} repros/{progress} tries, {reproCount / (double)progress:p1}");
             }
 
             Console.WriteLine();
