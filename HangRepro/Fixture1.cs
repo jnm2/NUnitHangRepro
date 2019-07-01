@@ -58,11 +58,5 @@ namespace HangRepro
         {
             new StackTrace(true);
         }
-
-        [Test]
-        public static void Test_35()
-        {
-            new StackTrace(true);
-        }
     }
 }
