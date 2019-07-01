@@ -2,7 +2,7 @@ using System;
 
 namespace HangRepro
 {
-    public static class DummyClass
+    public static class DummyDocumentWithLotsOfSequencePoints
     {
         // This file exacerbates the .NET Framework race condition (https://github.com/dotnet/coreclr/issues/19698) by
         // making the PDB sequence points table larger and slower to scan through.
