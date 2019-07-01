@@ -16,5 +16,16 @@ namespace HangRepro
         {
             Thread.Sleep(45);
         }
+
+        [Test]
+        public static void Tests_3_to_14([Range(1, 12)] int x)
+        {
+            Thread.Sleep(20);
+        }
+
+        [Test]
+        public static void Tests_15_to_26([Range(1, 12)] int x)
+        {
+        }
     }
 }
