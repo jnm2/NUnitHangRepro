@@ -19,7 +19,7 @@ namespace HangRepro
         public static void A__Timing_test_3() => Thread.Sleep(80);
 
         [Test]
-        public static void A__Timing_test_4() => Thread.Sleep(75);
+        public static void A__Timing_test_4() => Thread.Sleep(70);
 
         [Test]
         public static void A__Timing_test_5() => Thread.Sleep(80);
