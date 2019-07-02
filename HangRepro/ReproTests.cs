@@ -3,7 +3,7 @@ using System.Threading;
 using NUnit.Framework;
 
 [assembly: Parallelizable(ParallelScope.Children)]
-[assembly: LevelOfParallelism(7)]
+[assembly: LevelOfParallelism(6)]
 
 namespace HangRepro
 {
@@ -26,9 +26,6 @@ namespace HangRepro
 
         [Test]
         public static void A__Timing_test_6() => Thread.Sleep(69);
-
-        [Test]
-        public static void A__Timing_test_7() => Thread.Sleep(75);
 
         [Test]
         public static void B__Racing_tests([Range(1, 2)] int _)
