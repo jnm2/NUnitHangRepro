@@ -54,24 +54,25 @@ namespace HangRepro
                 {
                     UseShellExecute = false,
                     FileName = nunitConsolePath,
-                    Arguments = $"\"{typeof(Program).Assembly.Location}\" --inprocess --noresult",
+                    Arguments = $"\"{typeof(Program).Assembly.Location}\" --inprocess --noresult --trace=info",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true
                 }
             })
             {
-                var didNotify = false;
+                var didRepro = false;
 
                 process.OutputDataReceived += (sender, e) => { };
 
                 process.ErrorDataReceived += (sender, e) =>
                 {
-                    if (didNotify) return;
-                    didNotify = true;
+                    if (didRepro) return;
 
                     if (e.Data != null)
                     {
+                        didRepro = true;
                         notifyResult.Invoke(true);
+
                         try
                         {
                             process.Kill();
@@ -90,9 +91,14 @@ namespace HangRepro
                 };
 
                 process.Start();
+                var pid = process.Id;
+
                 process.BeginOutputReadLine();
                 process.BeginErrorReadLine();
                 process.WaitForExit();
+
+                File.Delete($"InternalTrace.{pid}.log");
+                if (!didRepro) File.Delete($"InternalTrace.{pid}.HangRepro.exe.log");
             }
         }
 
