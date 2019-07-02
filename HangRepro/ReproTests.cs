@@ -10,7 +10,7 @@ namespace HangRepro
     public static class ReproTests
     {
         [Test]
-        public static void A([Values(45, 65)] int delay)
+        public static void A([Values(35, 55)] int delay)
         {
             Thread.Sleep(delay);
             new StackTrace(true);
