@@ -2,9 +2,12 @@ using System.Diagnostics;
 using System.Threading;
 using NUnit.Framework;
 
+[assembly: Parallelizable(ParallelScope.Children)]
+[assembly: LevelOfParallelism(8)]
+
 namespace HangRepro
 {
-    public static class Fixture1
+    public static class ReproTests
     {
         [Test]
         public static void Test_01() => Thread.Sleep(385);
