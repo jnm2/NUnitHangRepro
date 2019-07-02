@@ -31,15 +31,15 @@ namespace HangRepro
         public static void A__Timing_test_7() => Thread.Sleep(75);
 
         [Test]
-        public static void B__Racing_tests([Range(1, 2)] int x)
+        public static void B__Racing_tests([Range(1, 2)] int _)
         {
             new StackTrace(true);
         }
 
         [Test]
-        public static void C__Ending_tests([Range(1, 24)] int x)
+        public static void C__Ending_tests([Range(1, 20)] int _)
         {
-            if (x > 12) Thread.Sleep(20);
+            Thread.Sleep(10);
         }
     }
 }
